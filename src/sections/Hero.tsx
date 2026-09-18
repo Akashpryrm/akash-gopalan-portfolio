@@ -12,30 +12,27 @@ const LinkedinIcon = () => (
 );
 
 export const Hero: React.FC = () => {
-  const { secondaryTitles, github, linkedin, resumeUrl } = portfolioData.personal;
+  const { secondaryTitles, resumeUrl } = portfolioData.personal;
   
   const containerRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Only animate if prefers-reduced-motion is false
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (!prefersReducedMotion && textRef.current && imageRef.current) {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       
-      // Text fade in
       tl.fromTo(
         textRef.current.children,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 1, stagger: 0.15, delay: 0.2 }
       );
       
-      // Portrait fade and subtle scale
       tl.fromTo(
         imageRef.current,
-        { scale: 0.97, opacity: 0 },
+        { scale: 0.95, opacity: 0 },
         { scale: 1, opacity: 1, duration: 1.5 },
         "-=1"
       );
@@ -46,24 +43,51 @@ export const Hero: React.FC = () => {
     <section 
       id="home" 
       ref={containerRef}
-      className="relative min-h-screen pt-24 pb-12 overflow-hidden flex items-center"
+      className="relative min-h-[100svh] pt-28 pb-12 overflow-hidden flex items-center bg-background"
     >
-      {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Decorative Text Left/Bottom */}
+      <div className="absolute left-6 lg:left-12 bottom-12 hidden md:flex items-center gap-4 opacity-70 z-20">
+        <div className="w-[18px] h-[30px] rounded-full border border-text-muted flex justify-center p-1">
+          <div className="w-1 h-2 bg-text-muted rounded-full animate-bounce" />
+        </div>
+        <span className="text-xs font-medium tracking-[0.2em] text-text-muted uppercase">
+          Scroll to explore
+        </span>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10 relative h-full flex flex-col md:flex-row items-center">
+      {/* Right Decorative Detail - Top */}
+      <div className="absolute right-4 lg:right-8 xl:right-16 top-[15%] lg:top-[25%] hidden sm:flex flex-col items-end opacity-80 z-20 pointer-events-none">
+        <p className="text-right text-xs md:text-sm font-medium tracking-[0.2em] text-text-muted leading-tight uppercase">
+          Same<br />
+          Person.<br />
+          Bigger<br />
+          Possibilities.
+        </p>
+        <div className="w-8 h-[2px] bg-accent mt-3"></div>
+      </div>
+
+      {/* Right Decorative Detail - Bottom */}
+      <div className="absolute right-4 lg:right-8 xl:right-16 bottom-[15%] lg:bottom-[20%] hidden lg:flex flex-col items-end opacity-80 z-20 pointer-events-none">
+        <p className="text-right text-xs font-medium tracking-[0.2em] text-text-muted leading-tight uppercase">
+          Turning<br />
+          Ideas Into<br />
+          Real Solutions
+        </p>
+      </div>
+
+      <div className="max-w-[90rem] mx-auto px-6 lg:px-12 w-full z-10 relative h-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 mt-4 lg:mt-0">
         
         {/* LEFT: Typography & Content */}
-        <div ref={textRef} className="flex-1 w-full flex flex-col justify-center pt-10 md:pt-0 z-20">
+        <div ref={textRef} className="w-full lg:w-[55%] flex flex-col justify-center z-20 xl:max-w-4xl order-2 lg:order-1">
           
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-6 lg:mb-8">
             <span className="text-sm font-semibold tracking-[0.2em] text-text-muted uppercase">Hi, I'm</span>
             <div className="h-[1px] w-12 bg-border"></div>
           </div>
           
-          <h1 className="font-heading font-bold text-6xl md:text-7xl lg:text-[7rem] leading-[0.9] tracking-tighter mb-6">
-            <span className="block text-text-primary">AKASH</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-hover pb-2">
+          <h1 className="font-heading font-bold text-6xl sm:text-7xl lg:text-[7rem] xl:text-[8rem] leading-[0.85] tracking-tighter mb-6 lg:mb-8">
+            <span className="block text-text-primary drop-shadow-lg">AKASH</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-hover pb-3 drop-shadow-lg">
               GOPALAN
             </span>
           </h1>
@@ -72,107 +96,83 @@ export const Hero: React.FC = () => {
             Full-Stack <span className="text-text-muted">Developer</span>
           </h2>
           
-          <p className="text-sm md:text-base text-accent font-medium mb-6">
+          <p className="text-sm md:text-base text-accent font-medium mb-6 lg:mb-8">
             {secondaryTitles.join(' • ')}
           </p>
           
-          <p className="text-lg text-text-muted max-w-lg mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-text-muted max-w-lg mb-10 lg:mb-12 leading-relaxed">
             I build modern applications across mobile, web, backend and intelligent systems.
           </p>
 
-          <div className="flex flex-wrap items-center gap-5">
+          <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-5">
             <a
               href="#projects"
-              className="px-8 py-3.5 rounded-full bg-accent text-background font-semibold hover:bg-accent-hover transition-colors flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-accent text-background font-bold hover:bg-accent-hover transition-colors flex items-center gap-2 shadow-lg shadow-accent/20"
             >
               View My Work
               <ExternalLink size={18} />
             </a>
             
-            {resumeUrl && (
+            {resumeUrl ? (
               <a
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full border border-border text-text-primary hover:border-accent hover:text-accent transition-colors flex items-center gap-2"
+                className="px-8 py-4 rounded-full border border-border text-text-primary hover:border-accent hover:text-accent transition-colors flex items-center gap-2"
+              >
+                Download Resume
+                <Download size={18} />
+              </a>
+            ) : (
+              <a
+                href="#"
+                onClick={(e) => { e.preventDefault(); alert('Please add your resume file to public/ and update portfolio.ts'); }}
+                className="px-8 py-4 rounded-full border border-border text-text-primary hover:border-accent hover:text-accent transition-colors flex items-center gap-2"
               >
                 Download Resume
                 <Download size={18} />
               </a>
             )}
 
-            <div className="flex items-center gap-4 ml-2">
-              {github && (
-                <a href={github} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border/50 text-text-muted hover:text-accent hover:border-accent transition-colors" aria-label="GitHub">
-                  <GithubIcon />
-                </a>
-              )}
-              {linkedin && (
-                <a href={linkedin} target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border/50 text-text-muted hover:text-accent hover:border-accent transition-colors" aria-label="LinkedIn">
-                  <LinkedinIcon />
-                </a>
-              )}
+            <div className="flex items-center gap-4 mt-2 sm:mt-0 sm:ml-2">
+              <a href="https://github.com/Akashpryrm/" target="_blank" rel="noopener noreferrer" 
+                 className="p-3.5 rounded-full border border-text-muted/40 bg-surface/30 text-text-primary hover:text-accent hover:border-accent hover:bg-accent/10 transition-colors" 
+                 aria-label="GitHub">
+                <GithubIcon />
+              </a>
+              <a href="https://www.linkedin.com/in/akash-gopalan" target="_blank" rel="noopener noreferrer" 
+                 className="p-3.5 rounded-full border border-text-muted/40 bg-surface/30 text-text-primary hover:text-accent hover:border-accent hover:bg-accent/10 transition-colors" 
+                 aria-label="LinkedIn">
+                <LinkedinIcon />
+              </a>
             </div>
-          </div>
-
-          {/* Lower Left Decorative: Scroll Indicator */}
-          <div className="mt-20 flex items-center gap-4 opacity-70">
-            <div className="w-[18px] h-[30px] rounded-full border border-text-muted flex justify-center p-1">
-              <div className="w-1 h-2 bg-text-muted rounded-full animate-bounce" />
-            </div>
-            <span className="text-xs font-medium tracking-[0.2em] text-text-muted uppercase">
-              Scroll to explore
-            </span>
           </div>
         </div>
 
         {/* RIGHT: Portrait Presentation */}
-        <div className="w-full md:w-[45%] h-[500px] md:h-[80vh] relative mt-12 md:mt-0 z-10 flex items-end md:items-center justify-center">
+        <div className="w-full lg:w-[40%] xl:w-[42%] h-[400px] sm:h-[500px] lg:h-[75vh] relative z-10 flex items-center justify-center order-1 lg:order-2">
           
-          {/* Subtle Spotlight behind portrait */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-white/5 rounded-full blur-[80px] -z-10" />
+          {/* Subtle Cinematic Spotlight */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-accent/10 rounded-[100%] blur-[80px] -z-10" />
 
           {/* Portrait Container with CSS Blending */}
           <div 
             ref={imageRef}
             className="w-full h-full relative"
             style={{
-              // CSS masking to smoothly fade the bottom edge into the dark background
-              maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+              // Elliptical radial mask safely containing the head while fading the edges
+              maskImage: 'radial-gradient(ellipse 65% 70% at 50% 50%, black 40%, transparent 85%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 65% 70% at 50% 50%, black 40%, transparent 85%)',
             }}
           >
             <img 
               src="/images/akash-portrait.png" 
               alt="Akash Gopalan" 
-              className="w-full h-full object-contain object-bottom md:object-center drop-shadow-2xl"
-              onError={(e) => {
-                // Graceful fallback if image is missing
-                const target = e.target as HTMLImageElement;
-                target.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNTE1MTU0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+UGxhY2UgcG9ydHJhaXQgYXQgL2ltYWdlcy9ha2FzaC1wb3J0cmFpdC5wbmc8L3RleHQ+PC9zdmc+';
-              }}
+              className="w-full h-full object-contain object-center"
+              style={{ filter: 'contrast(1.05) brightness(0.95)' }}
             />
           </div>
 
-          {/* Right Decorative Detail */}
-          <div className="absolute right-0 top-1/4 hidden lg:flex flex-col items-end opacity-50">
-            <p className="text-right text-sm font-medium tracking-[0.15em] text-text-primary leading-tight uppercase">
-              Same<br />
-              Person.<br />
-              Bigger<br />
-              Possibilities.
-            </p>
-            <div className="w-8 h-[2px] bg-accent mt-3"></div>
-          </div>
-
-          {/* Lower Right Decorative Detail */}
-          <div className="absolute right-0 bottom-10 hidden lg:block opacity-50">
-            <p className="text-right text-xs font-medium tracking-[0.15em] text-text-muted leading-tight uppercase">
-              Turning<br />
-              Ideas Into<br />
-              Real Solutions
-            </p>
-          </div>
         </div>
 
       </div>
