@@ -57,7 +57,7 @@ export const portfolioData: PortfolioData = {
     email: '',
     github: '',
     linkedin: '',
-    resumeUrl: '',
+    resumeUrl: 'https://drive.google.com/uc?export=download&id=1AHz9L_hnBGw5L8OSoPFxgMQKSafAU1yy',
   },
   education: [
     {
