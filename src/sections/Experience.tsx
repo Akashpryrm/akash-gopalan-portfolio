@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-surface/20 border-t border-border/50">
+    <section className="py-20 md:py-24 bg-surface/20 border-t border-border/50">
       <div className="max-w-4xl mx-auto px-6 lg:px-12">
         <h2 className="text-sm font-semibold tracking-[0.2em] text-accent uppercase mb-12 text-center">
           Professional Experience

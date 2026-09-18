@@ -3,7 +3,7 @@ import { portfolioData } from '../data/portfolio';
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 md:py-32">
+    <section id="skills" className="py-20 md:py-32 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         <div className="mb-16">
@@ -19,7 +19,7 @@ export const Skills: React.FC = () => {
           {portfolioData.skills.map((skillGroup, index) => (
             <div 
               key={index} 
-              className="p-8 rounded-2xl bg-surface/30 border border-border/50 hover:border-accent/30 hover:bg-surface/50 transition-all duration-300 group"
+              className="py-8 border-b border-border/50 group"
             >
               <h3 className="text-sm font-semibold tracking-[0.15em] text-text-muted uppercase mb-6 group-hover:text-text-primary transition-colors">
                 {skillGroup.category}

@@ -14,7 +14,7 @@ export const Contact: React.FC = () => {
   const { github, linkedin } = portfolioData.personal;
 
   return (
-    <section id="contact" className="py-32 bg-surface/10 border-t border-border/50 relative overflow-hidden">
+    <section id="contact" className="pt-24 pb-8 md:pt-32 bg-surface/10 border-t border-border/50 relative overflow-hidden scroll-mt-20">
       {/* Subtle glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -46,7 +46,7 @@ export const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-24">
           <a
             href="mailto:akashpryrm@gmail.com"
             className="px-8 py-4 rounded-full bg-text-primary text-background font-semibold hover:bg-accent hover:text-white transition-colors flex items-center gap-2"
@@ -78,6 +78,14 @@ export const Contact: React.FC = () => {
               GitHub
             </a>
           )}
+        </div>
+
+        {/* Minimal Footer */}
+        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
+          <p>© {new Date().getFullYear()} Akash Gopalan. All rights reserved.</p>
+          <p>
+            Designed & Engineered with <span className="text-accent">Precision</span>.
+          </p>
         </div>
 
       </div>

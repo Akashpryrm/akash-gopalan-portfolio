@@ -13,7 +13,7 @@ function App() {
     <MainLayout>
       <Hero />
       <About />
-      <div id="experience">
+      <div id="experience" className="scroll-mt-20">
         <Experience />
         <Education />
       </div>

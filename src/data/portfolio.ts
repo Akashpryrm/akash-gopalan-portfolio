@@ -55,8 +55,8 @@ export const portfolioData: PortfolioData = {
     ],
     // Links to be provided later
     email: '',
-    github: '',
-    linkedin: '',
+    github: 'https://github.com/Akashpryrm/',
+    linkedin: 'https://www.linkedin.com/in/akash-gopalan',
     resumeUrl: 'https://drive.google.com/uc?export=download&id=1AHz9L_hnBGw5L8OSoPFxgMQKSafAU1yy',
   },
   education: [

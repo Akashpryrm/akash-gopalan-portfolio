@@ -26,7 +26,7 @@ export const Certifications: React.FC = () => {
   ];
 
   return (
-    <section id="certifications" className="py-24 md:py-32 bg-background border-t border-border/50">
+    <section id="certifications" className="py-20 md:py-32 bg-background border-t border-border/50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-16">
         
         <div className="md:w-1/3">
