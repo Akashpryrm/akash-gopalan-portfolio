@@ -57,7 +57,7 @@ export const portfolioData: PortfolioData = {
     email: '',
     github: 'https://github.com/Akashpryrm/',
     linkedin: 'https://www.linkedin.com/in/akash-gopalan',
-    resumeUrl: 'https://drive.google.com/uc?export=download&id=1AHz9L_hnBGw5L8OSoPFxgMQKSafAU1yy',
+    resumeUrl: '/resume/AKASH_GOPALAN_RESUME.pdf',
   },
   education: [
     {
@@ -117,12 +117,12 @@ export const portfolioData: PortfolioData = {
   ],
   skills: [
     {
-      category: 'Mobile & Frontend',
-      items: ['Flutter', 'Dart', 'Riverpod', 'React'],
+      category: 'Languages & Frontend',
+      items: ['Flutter', 'Dart', 'C', 'C++', 'Java', 'React'],
     },
     {
       category: 'Backend & APIs',
-      items: ['Python', 'Django', 'REST APIs'],
+      items: ['Python', 'Django', 'Django REST Framework', 'REST APIs'],
     },
     {
       category: 'Database',
@@ -130,7 +130,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       category: 'AI / ML',
-      items: ['OpenCV', 'CNN', 'Deep Learning'],
+      items: ['OpenCV', 'CNN', 'Deep Learning', 'Machine Learning'],
     },
     {
       category: 'Core Concepts',
@@ -145,7 +145,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       category: 'Tools',
-      items: ['Git', 'GitHub', 'Postman'],
+      items: ['Git', 'GitHub', 'Postman', 'Unit Testing', 'Integration Testing', 'User Acceptance Testing'],
     },
   ],
   certifications: [
